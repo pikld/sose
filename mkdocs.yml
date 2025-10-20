@@ -10,12 +10,28 @@ copyright: Maintained by <a href="https://pikld.com">pikld</a>.
 nav:
   - Home: index.md
   - Modules: modules.md
+
 plugins:
   - search
+  - autorefs
   - mkdocstrings:
+      default_handler: python
       handlers:
         python:
-          paths: ["src/sose"]
+          options:
+            docstring_style: numpy
+            show_source: true
+            members_order: source
+            separate_signature: true
+            show_root_heading: true
+            show_category_heading: true
+  - gen-files:
+      scripts:
+        - scripts/docs/gen_ref_pages.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+  - section-index
+
 theme:
   name: material
   feature:

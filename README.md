@@ -8,9 +8,9 @@
 
 ## Why **sose**?
 
-- **Lie-native**: clean APIs for **SO(2)**, **SO(3)**, **SE(2)**, **SE(3)** (and n-D generics where it makes sense).  
-- **Robotics-ready**: `exp/log`, `hat/vee`, **adjoint**, left/right **Jacobians**, interpolation (slerp, De Casteljau on manifolds), distances (geodesic, chordal, Frobenius).  
-- **Friendly & familiar**: mirrors parts of `scipy.spatial.transform.Rotation` where applicable.  
+- **Lie-native**: clean APIs for **SO(2)**, **SO(3)**, **SE(2)**, **SE(3)** (and n-D generics where it makes sense).
+- **Robotics-ready**: `exp/log`, `hat/vee`, **adjoint**, left/right **Jacobians**, interpolation (slerp, De Casteljau on manifolds), distances (geodesic, chordal, Frobenius).
+- **Friendly & familiar**: mirrors parts of `scipy.spatial.transform.Rotation` where applicable.
 - **Composable**: typed transforms, batched ops, and differentiable-friendly interfaces.
 
 Goal: Python front end with Rust core (SIMD-aware) and optional Array API backends (NumPy / CuPy / PyTorch / JAX). For now it is Numpy-native
@@ -52,17 +52,17 @@ print(Adj.shape, Jl.shape, dist)
 
 ## Features (snapshot)
 
-- **Groups**: SO2, SO3, SE2, SE3 (+ generic so(n)/se(n) helpers).  
-- **Ops**: `exp`, `log`, `hat`, `vee`, `adjoint`, `inv`, `@` composition.  
-- **Jacobians**: left/right of `exp/log`, boxplus/boxminus.  
-- **Interpolation**: slerp; Bézier/De Casteljau on manifolds.  
-- **Metrics**: geodesic/chordal/Frobenius; pose/rotation means.  
-- **Uncertainty**: first-order propagation via \(J\,\Sigma\,J^	op\).  
+- **Groups**: SO2, SO3, SE2, SE3 (+ generic so(n)/se(n) helpers).
+- **Ops**: `exp`, `log`, `hat`, `vee`, `adjoint`, `inv`, `@` composition.
+- **Jacobians**: left/right of `exp/log`, boxplus/boxminus.
+- **Interpolation**: slerp; Bézier/De Casteljau on manifolds.
+- **Metrics**: geodesic/chordal/Frobenius; pose/rotation means.
+- **Uncertainty**: first-order propagation via \(J\,\Sigma\,J^	op\).
 ---
 
 ## Design notes
 
-- **SciPy-friendly**: where it fits, `SO3` exposes methods akin to `Rotation` (e.g., `as_matrix`, `from_matrix`, `as_quat`, `from_quat`), with batch support.  
+- **SciPy-friendly**: where it fits, `SO3` exposes methods akin to `Rotation` (e.g., `as_matrix`, `from_matrix`, `as_quat`, `from_quat`), with batch support.
 - **Ergonomics first**: clear names, minimal surprises, vectorized where possible.
 ---
 
