@@ -1,0 +1,72 @@
+[project]
+name = "sose"
+version = "0.1.0"
+description = "Lie Group transformation and spatial framework"
+readme = "README.md"
+requires-python = ">=3.13"
+keywords = ["lie groups", "geometry", "robotics"]
+license = { text = "MIT" }
+authors = [
+  { name = "Your Name", email = "your.email@example.com" }
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Mathematics",
+]
+dependencies = [
+    "numpy>=2.3.4",
+]
+
+[project.urls]
+Repository = "https://github.com/pikld/sose"
+
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.0.0",
+  "coverage>=7.0.0",
+  "ruff",
+  "ty"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+src = ["src"]
+exclude = ["tests/data"]
+
+[tool.ruff.lint]
+select = [
+  "E", "F", "B", "I", "UP", "N", "C90", "PL", "RUF"
+]
+ignore = ["E501"]  # handled by formatting
+
+[tool.ruff.format]
+docstring-code-format = true
+preview = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "--strict-markers --tb=short -ra"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 90
